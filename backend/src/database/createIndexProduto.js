@@ -32,7 +32,7 @@ async function createIndexProduto() {
           },
         });
   
-        console.log('Índice "produtos" criado com sucesso:', response.body);
+        console.log('Índice "produtos" criado com sucesso:', response);
       } else {
         console.log('Índice "produtos" já existe.');
       }

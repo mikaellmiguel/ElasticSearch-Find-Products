@@ -4,16 +4,12 @@ const path = require('path');
 
 
 const cliente = new Client({
-        node: process.env.DB_NODE || "https://localhost:9200",
+        node: process.env.DB_NODE || "http://localhost:9200",
         auth: {
             username: process.env.DB_USER || "elastic",
             password: process.env.DB_PASSWORD || "password"
-        },
-        tls: {
-            ca: require('fs').readFileSync(path.resolve(__dirname, 'http_ca.crt')),
-            rejectUnauthorized: false
         }
-    });
+});
 
 // Testa a conexão
 async function testConnection() {
