@@ -47,3 +47,24 @@ curl -X POST "localhost:9200/produtos/_doc" -H "Content-Type: application/json" 
   "preco": 299.90,
   "estoque": 20
 }'
+
+# Buscar um produto pelo ID
+curl -X GET "localhost:9200/produtos/_doc/1" -H "Content-Type: application/json"
+
+# Buscar todos os produtos
+curl -X GET "localhost:9200/produtos/_search" -H "Content-Type: application/json" -d '{
+  "query": {
+    "match_all": {}
+  }
+}'
+
+
+# Atualizar um produto pelo ID
+curl -X POST "localhost:9200/produtos/_update/1" -H "Content-Type: application/json" -d '{
+  "doc": {
+    "preco": 4799.99
+  }
+}'
+
+# Deletar um produto pelo ID
+curl -X DELETE "localhost:9200/produtos/_doc/1"
